@@ -221,14 +221,15 @@ const callback = (fn, value) => {
 
 callback(addMethod, 10);
 
-const words = [
-  "spray",
-  "limit",
-  "elite",
-  "exuberant",
-  "destruction",
-  "present"
-];
+const addMethod2 = value => console.log(value);
+const callback2 = (fn, value = 10) => {
+  let sum = value + 10;
+  fn(sum);
+};
+
+callback2(addMethod2);
+
+const words = ["moci", "pricing", "plm", "lcm", "presentation", "ecpm"];
 const result = words.filter(word => word.length > 6);
 console.log(result);
 
@@ -242,3 +243,48 @@ const isPrime = num => {
   }
 };
 console.log(numbers.filter(isPrime));
+
+console.log(new Date());
+
+//create a new class
+class User {
+  constructor(name = "No Name", phone = "911") {
+    this.name = name;
+    this.phone = phone;
+    this.friends = [
+      {
+        name: "Jill",
+        phone: "913.234.1234"
+      },
+      {
+        name: "Bill",
+        phone: "913.234.9999"
+      }
+    ];
+    this.pets = ["dog", "cat", "bunny", "bird"];
+  }
+
+  getUserName() {
+    return this.name;
+  }
+
+  getUserPhone() {
+    return this.phone;
+  }
+
+  getFriends() {
+    return this.friends;
+  }
+
+  getPets() {
+    return this.pets;
+  }
+}
+
+console.log(new User().getUserName());
+console.log(new User().getUserPhone());
+console.log(new User().getFriends().map(friend => friend.name));
+console.log(new User());
+console.log(new User().getPets());
+
+console.log(new User("Angelina", "913.111.1111"));
