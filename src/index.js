@@ -170,3 +170,75 @@ console.log(add2(1, 4));
 const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
 const wordLength = materials.map(material => material.length);
 console.log(wordLength);
+
+console.log(
+  data.forEach(value => {
+    console.log(value.gender);
+  })
+);
+
+console.log(data.indexOf({ gender: "female" }));
+
+console.log(
+  data.find(value => {
+    return value.gender === "female";
+  })
+);
+
+console.log(data.map(friends => friends.name));
+
+const friends = [
+  { firstname: "Mickey", lastname: "Mouse", age: 25 },
+  { firstname: "Minnie", lastname: "Mouse", age: 25 },
+  { firstname: "Donald", lastname: "Duck", age: 55 }
+];
+
+console.log(
+  friends.map(friend => [friend.firstname, friend.lastname].join(" "))
+);
+
+//returns only the first found element value
+console.log(friends.find(friend => friend.lastname === "Mouse"));
+
+const friendsAges = [15, 25, 55];
+const isOver21 = currentValue => currentValue > 21;
+console.log("Over the age of 21: " + friendsAges.every(isOver21));
+
+let sum = [0, 1, 2, 3].reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+console.log(sum);
+
+const passedTheTest = currentValue => currentValue > 80;
+const array = [70, 79, 90, 100];
+console.log("Everyone passed the test: " + array.every(passedTheTest));
+
+const addMethod = value => console.log(value);
+const callback = (fn, value) => {
+  let sum = value + 10;
+  fn(sum);
+};
+
+callback(addMethod, 10);
+
+const words = [
+  "spray",
+  "limit",
+  "elite",
+  "exuberant",
+  "destruction",
+  "present"
+];
+const result = words.filter(word => word.length > 6);
+console.log(result);
+
+let numbers = [4, 6, 8, 9, 12, 53, -17, 2, 5, 7, 31, 97, -1, 17];
+const isPrime = num => {
+  if (num <= 1) return false;
+  else if (num === 2) return true;
+  else {
+    for (let i = 2; i < num; i++) if (num % i === 0) return false;
+    return true;
+  }
+};
+console.log(numbers.filter(isPrime));
