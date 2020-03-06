@@ -75,3 +75,98 @@ console.log(data[0]["friends"]);
 console.log(data);
 data[10] = "Hi"; //will add to index of 10 and mark any previous as undfined if not already defined
 console.log(data);
+
+//tricks in JS --see video - https://www.destroyallsoftware.com/talks/wat
+console.log([] + []);
+console.log([] + {});
+console.log({} + []);
+console.log({} + {});
+
+//logical operators: "&&", "||", "!", ">", "<", "===", "!=="
+let show = true;
+let number = 12;
+if (show && number === 12) {
+  console.log("Show Me");
+} else if (show === undefined || !number) {
+  console.log("Not defined");
+} else {
+  console.log("Don't Show Me");
+}
+
+const translation = "pl-PL";
+switch (translation) {
+  case "pl-PL":
+    console.log("Polish Translation");
+    break;
+  case "fr-FR":
+    console.log("French Translation");
+    break;
+  case "en-US":
+  case "au-AU":
+    console.log("English Translation");
+    break;
+  default:
+    console.log("English Translation");
+}
+
+let getIceCream = true;
+let leaveTheHouse;
+
+leaveTheHouse = getIceCream ? true : false;
+console.log(leaveTheHouse);
+
+const food = "tacos";
+if (food === "tacos") {
+  console.log("Feed Don!");
+} else if (food === "pizza") {
+  console.log("Feed Meghan!");
+} else {
+  console.log("Feed Meena!");
+}
+
+switch (food) {
+  case "tacos":
+    console.log("Feed Don!");
+    break;
+  case "pizza":
+    console.log("Feed Meghan!");
+    break;
+  default:
+    console.log("Feed Meena!");
+}
+
+let meenaPays;
+meenaPays = food === "tacos" ? true : false;
+console.log(meenaPays);
+
+//different ways to add text
+console.log("Meena has to pay today:" + meenaPays);
+console.log(`Meena has to pay today:${meenaPays}`);
+
+//functions - non-arrow
+//these functions have to explicitly bind to this
+function eatTacos() {
+  return "Yummy!";
+}
+const returnValue = eatTacos();
+console.log(returnValue);
+
+console.log(eatTacos); //will show function
+console.log(eatTacos()); //will show return value if defeined otherwise undefined will show
+
+function add(value1, value2) {
+  return value1 + value2;
+}
+
+console.log(add(1, 4));
+
+//arrow function
+//arrow functions bind this
+const add2 = (value1, value2) => {
+  return value1 + value2;
+};
+console.log(add2(1, 4));
+
+const materials = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+const wordLength = materials.map(material => material.length);
+console.log(wordLength);
