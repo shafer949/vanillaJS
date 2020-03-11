@@ -115,6 +115,7 @@ let leaveTheHouse;
 leaveTheHouse = getIceCream ? true : false;
 console.log(leaveTheHouse);
 
+//best used when checking multiple values
 const food = "tacos";
 if (food === "tacos") {
   console.log("Feed Don!");
@@ -124,6 +125,7 @@ if (food === "tacos") {
   console.log("Feed Meena!");
 }
 
+//bes used when checking only 1 value
 switch (food) {
   case "tacos":
     console.log("Feed Don!");
@@ -159,6 +161,8 @@ function add(value1, value2) {
 }
 
 console.log(add(1, 4));
+
+console.log("Trick", function() {});
 
 //arrow function
 //arrow functions bind this
@@ -288,3 +292,67 @@ console.log(new User());
 console.log(new User().getPets());
 
 console.log(new User("Angelina", "913.111.1111"));
+
+//function fun
+class User2 {
+  constructor(name = "No Name", phone = "911") {
+    this.name = name;
+    this.phone = phone;
+    this.friends = [
+      {
+        name: "Jill",
+        phone: "913.234.1234"
+      },
+      {
+        name: "Bill",
+        phone: "913.234.9999"
+      }
+    ];
+    this.pets = ["dog", "cat", "bunny", "bird"];
+    this.myFunction = () => {
+      console.log(this.name);
+    };
+
+    this.nonBindingFunction = test.bind(this);
+
+    function test() {
+      console.log(this.name);
+    }
+  }
+}
+
+console.log("Test Arrow Function binding of this");
+const u2 = new User2();
+u2.myFunction();
+u2.name = "Mary";
+const u3 = u2.myFunction;
+u3();
+console.log("End Test Arrow Function binding of this");
+
+console.log("Test Regular Function binding of this");
+const u4 = new User2();
+u4.nonBindingFunction();
+u4.name = "Mary";
+const u5 = u4.nonBindingFunction;
+u5();
+console.log("End Test Regular Function binding of this");
+
+//using spread operator
+const user1 = {
+  id: 1,
+  name: "Tim"
+};
+console.log(user1);
+
+const user2 = {
+  ...user1,
+  name: "Bill",
+  id: 2
+};
+console.log(user2);
+
+const arr1 = [1, 2, 3, 4];
+console.log(arr1);
+
+const arr2 = [...arr1, 5, 6, 7, 8];
+console.log(arr2);
